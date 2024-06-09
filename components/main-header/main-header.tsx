@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-import { CartIcon, LogoSvg } from "@/assets/header-svgs";
+import CartDropdown from "../cart-dropdown/cart-dropdown";
+
+import { LogoSvg } from "@/assets/header-svgs";
 
 export default function MainHeader() {
   return (
@@ -9,9 +11,7 @@ export default function MainHeader() {
         <LogoSvg />
       </Link>
 
-      <span className="cursor-pointer">
-        <CartIcon />
-      </span>
+      <CartDropdown />
     </header>
   );
 }
