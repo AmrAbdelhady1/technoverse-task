@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
-import "./globals.css";
 import MainHeader from "@/components/main-header/main-header";
+import { Toaster } from "react-hot-toast";
+import "./globals.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <Toaster position="top-right" />
         <MainHeader />
         <main className="mt-10">
         {children}

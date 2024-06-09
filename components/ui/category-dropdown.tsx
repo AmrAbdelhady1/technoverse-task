@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 interface Props {
   onChange: (category: string) => void;
   activeCategory: string;
+  className?: string;
 }
 
-const categories = [
+const categoriesAll = [
   "All Products",
   "electronics",
   "jewelery",
@@ -14,8 +15,13 @@ const categories = [
   "women's clothing",
 ];
 
-export default function CategoryDropdown({ onChange, activeCategory }: Props) {
+export default function CategoryDropdown({
+  onChange,
+  activeCategory,
+  className,
+}: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const categories = className ? categoriesAll.slice(1) : categoriesAll;
 
   const handleMouseEnter = () => {
     setIsOpen(true);
@@ -27,7 +33,7 @@ export default function CategoryDropdown({ onChange, activeCategory }: Props) {
 
   return (
     <div
-      className="relative py-3 px-4 rounded-lg w-[200px] cursor-pointer border"
+      className={`relative py-3 px-4 rounded-lg w-[200px] cursor-pointer border ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

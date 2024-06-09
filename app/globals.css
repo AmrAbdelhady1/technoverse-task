@@ -5,6 +5,6 @@
 
 @layer utilities{
   .btn-primary{
-    @apply py-2 px-4 w-full rounded-lg bg-primary text-white font-bold
+    @apply py-3 px-4 w-full rounded-lg bg-primary text-white font-bold text-center
   }
 }
