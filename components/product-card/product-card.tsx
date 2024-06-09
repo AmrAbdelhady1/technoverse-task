@@ -1,3 +1,5 @@
+import { useCartStore } from "@/stores/cart-store";
+
 import Image from "next/image";
 
 import { Product } from "@/types/types";
@@ -8,6 +10,18 @@ interface Props {
 }
 
 export default function ProductCard({ product }: Props) {
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.title,
+      price: product.price,
+      quantity: 1,
+      image: product.image,
+    });
+  };
+
   return (
     <div className="p-4 flex flex-col gap-2 bg-white rounded-lg border hover:shadow-lg overflow-hidden cursor-pointer hover:scale-110">
       <Image
@@ -31,7 +45,9 @@ export default function ProductCard({ product }: Props) {
 
       <div className="flex items-center justify-between gap-1 mt-4">
         <p className="text-xl font-bold">{product.price}$</p>
-        <button className="btn-primary !w-fit">Add to cart</button>
+        <button className="btn-primary !w-fit" onClick={handleAddToCart}>
+          Add to cart
+        </button>
       </div>
     </div>
   );
