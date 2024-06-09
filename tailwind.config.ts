@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      colors: {
+        primary: "#5ECE7B",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
